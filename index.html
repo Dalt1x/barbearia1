@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo da Barbearia" class="logo">
+            <h1>Barbearia</h1>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-mode-toggle">🌙 Modo Escuro</button>
+        <div class="menu">
+            <button class="menu-btn" onclick="openBooking()">Agende seu horário</button>
+            <button class="menu-btn"><a href="https://bit.ly/4fb9Qtv" target="_blank">Whatsapp</a></button>
+            <button class="menu-btn"><a href="https://www.instagram.com/_santbarber" target="_blank">Instagram</a></button>
+            <button class="menu-btn informacoes" onclick="openInfoModal()">Informações da barbearia</button>
+            <button class="menu-btn" onclick="openProfile()">Meus agendamentos</button>
+        </div>
+    </div>
+
+    <div id="tela" class="tela">
+        <div class="tela-content">
+            <span class="close" onclick="closetela()">&times;</span>
+            <h2>Agendar horário</h2>
+            <form id="bookingForm">
+                <label for="service">Serviço</label>
+                <select id="service" name="servico" required>
+                    <option value="" disabled selected>Selecione o serviço</option>
+                    <option value="1">R$ 30,00 - Corte</option>
+                    <option value="2">R$ 25,00 - Barba</option>
+                    <option value="3">R$ 35,00 - Corte + sobrancelhas</option>
+                    <option value="4">R$ 50,00 - Combo(Completo)</option>
+                    <option value="5">R$ 10,00 - Sobrancelhas</option>
+                </select>
+            
+                <label for="date">Data do agendamento</label>
+                <input type="date" id="date" name="data" required>
+            
+                <label for="time">Horário</label>
+                <input type="time" id="time" name="horario" required>
+            
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" name="nome" required>
+            
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="telefone" required>
+            
+                <button type="submit" class="confirm-btn">Confirmar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInfoModal()">&times;</span>
+            <h2>Informações da Barbearia</h2>
+            
+            <div class="info-section">
+                <h3>Horários de Atendimento</h3>
+                <table>
+                    <tr><td>Seg</td><td>Fechado</td></tr>
+                    <tr><td>Ter</td><td>09:00h às 12:00h</td><td>14:00h às 16:00h</td></tr>
+                    <tr><td>Qua</td><td>09:00h às 12:00h</td><td>14:00h às 16:00h</td></tr>
+                    <tr><td>Qui</td><td>09:00h às 12:00h</td><td>14:00h às 20:00h</td></tr>
+                    <tr><td>Sex</td><td>07:00h às 12:00h</td><td>14:00h às 21:00h</td></tr>
+                    <tr><td>Sáb</td><td>10:30h às 12:30h</td><td>14:00h às 19:00h</td></tr>
+                    <tr><td>Dom</td><td>Fechado</td></tr>
+                </table>
+            </div>
+    
+            <div class="info-section">
+                <h3>Formas de Pagamento</h3>
+                <ul>
+                    <li>Dinheiro</li>
+                    <li>Pix</li>
+                    <li>Cartão de crédito</li>
+                    <li>Cartão de débito</li>
+                </ul>
+            </div>
+    
+            <div class="info-section">
+                <h3>Endereço</h3>
+                <p>Rua Maria Angélica, Jardim Alvorada, 206</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()">&times;</span>
+            <h2>Meu perfil</h2>
+            <div class="profile-info">
+                <h3>Dalton Renan</h3>
+                <p>(21) 99999-9999</p>
+                <p>Meus agendamentos</p>
+            </div>
+            <div class="tabs">
+                <button class="tab-button" onclick="showTab('current')">Agendamentos atuais</button>
+                <button class="tab-button" onclick="showTab('completed')">Serviços realizados</button>
+            </div>
+            
+            <div id="current" class="tab-content">
+                <!-- Os agendamentos atuais serão carregados aqui -->
+            </div>
+            
+            <div id="completed" class="tab-content" style="display: none;">
+                <!-- Os serviços realizados serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
